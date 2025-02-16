@@ -79,7 +79,7 @@ class Dashboard extends React.Component {
       console.log("No POI selected.");
       return;
     }
-    const context = "If it is an item, return parts or components of that item. If it is  a structure or building, return items that would normally be found in that building or that are used to construct the building. Strictly return only a list. Do not provide example values, descriptions, or explanations";
+    const context = "If it is an item, return at least 5 parts or components of that item. If it is a structure or building, return at least 5 items that would normally be found in that building or that are used to construct the building. Strictly return only a list in array format. Do not provide example values, descriptions, code or explanations";
     const res = await this.callAPI(currentStructure, context);
     
     const resArr = this.extractAttributes(res.data);
@@ -93,7 +93,7 @@ class Dashboard extends React.Component {
       console.log("No POIs selected.");
       return;
     }
-    const context = "Given an item, return possible descriptive attributes of that item. Strictly return only a list. Do not provide example values, descriptions, or explanations";
+    const context = "Given an item, return at least 5 possible descriptive attributes of that item. Strictly return only a list in array format. Do not provide example values, descriptions, code or explanations";
     
     allPOIs.forEach(async(poi) => {
       const res = await this.callAPI(poi, context);

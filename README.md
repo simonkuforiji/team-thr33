@@ -68,3 +68,22 @@ _Teams update this section with any additional instructions on how to run the ap
 
 ### Feedback
 _Provided after hackathon judging is completed._
+
+## Team Thr33
+### POI Management AI Assistant
+#### How to run the app
+- **Open two terminals
+#### To run the web server, run the commands below in the first terminal
+- **cd team-thr33-api
+- **npm install
+- **npm start
+- **You should see: "Server is Running on http://localhost:9100."
+
+#### POI(Point of Interest) data can be sent to the webserver, to be stored, displayed and managed from the UI dashboard, using this endoint:
+- **http://localhost:9100/api/poi/database
+
+#### To run the User interface, run the commands below in the second terminal
+- **cd team-thr33-web
+- **npm install
+- **npm start
+- **Go to http://localhost:3100 in your web browser and you should see the UI dashboard

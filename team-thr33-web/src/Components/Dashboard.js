@@ -79,7 +79,7 @@ class Dashboard extends React.Component {
       console.log("No POI selected.");
       return;
     }
-    const context = "Given the name of an item, structure or buiding , strictly return only a string array of names of items and objects that are usually part of the item, structure or building. Do not provide example values, descriptions, or explanations, only return names in array format.";
+    const context = "If it is an item, return parts or components of that item. If it is  a structure or building, return items that would normally be found in that building or that are used to construct the building. Strictly return only a list. Do not provide example values, descriptions, or explanations";
     const res = await this.callAPI(currentStructure, context);
     
     const resArr = this.extractAttributes(res.data);
@@ -93,7 +93,7 @@ class Dashboard extends React.Component {
       console.log("No POIs selected.");
       return;
     }
-    const context = "Given the name of an item, strictly return only a string array of attribute names relevant to that item. Do not provide example values, descriptions, or explanations, only return attribute names in array format.";
+    const context = "Given an item, return possible descriptive attributes of that item. Strictly return only a list. Do not provide example values, descriptions, or explanations";
     
     allPOIs.forEach(async(poi) => {
       const res = await this.callAPI(poi, context);
@@ -118,7 +118,7 @@ class Dashboard extends React.Component {
       console.log("No POI selected.");
       return;
     }
-    const context = "Given some information, you are to give summary of all the items in that list to a building manager. Do not include technical or code details. Do not include any conversation, just give the answer directly.";
+    const context = "Give a summary or brief report of all the items in that list like you are reporting to a manager.";
     const res = await this.callAPI(JSON.stringify(aiSuggestions), context);
     this.setState({ aiSummary: res.data });
   }
@@ -191,7 +191,7 @@ class Dashboard extends React.Component {
     return (
       <>
         <h2 className="project-name-heading" style={{ color: '#007bff' }}>Team Thr33</h2>
-        <h2 className="project-name-heading">POI Assistant</h2>
+        <h2 className="project-name-heading">POI Management AI Assistant</h2>
         <br />
         <div className="box-1">
           <div className="box-2">

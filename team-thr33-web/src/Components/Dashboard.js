@@ -190,7 +190,7 @@ class Dashboard extends React.Component {
     console.log('aiSuggestions', aiSuggestions);
     return (
       <>
-        <h2 className="project-name-heading" style={{ color: '#007bff' }}>Group Thr33</h2>
+        <h2 className="project-name-heading" style={{ color: '#007bff' }}>Team Thr33</h2>
         <h2 className="project-name-heading">POI Assistant</h2>
         <br />
         <div className="box-1">

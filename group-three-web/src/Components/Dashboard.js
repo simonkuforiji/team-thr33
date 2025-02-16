@@ -37,7 +37,6 @@ class Dashboard extends React.Component {
         }
       })
       if (response) {
-        // console.log(response.data);
         return response.data;
       }
     } catch(error) {
@@ -83,7 +82,6 @@ class Dashboard extends React.Component {
     const context = "Given the name of an item, structure or buiding , strictly return only a string array of names of items and objects that are usually part of the item, structure or building. Do not provide example values, descriptions, or explanations, only return names in array format.";
     const res = await this.callAPI(currentStructure, context);
     
-    // console.log('res', res.data);
     const resArr = this.extractAttributes(res.data);
     this.setState({ aiObjects: [...resArr] });
   }
@@ -99,12 +97,10 @@ class Dashboard extends React.Component {
     
     allPOIs.forEach(async(poi) => {
       const res = await this.callAPI(poi, context);
-      // console.log('res', res.data);
       const resArr = this.extractAttributes(res.data);
       const resObj = this.arrToObj([...resArr]);
       
       // Use functional update to prevent overwriting previous state
-      // console.log('aiSuggestionsd', poi,  resObj)
       if (poi && Object.keys(resObj).length > 0) {
         this.setState(prevState => ({
           aiSuggestions: { 
@@ -124,18 +120,15 @@ class Dashboard extends React.Component {
     }
     const context = "Given some information, you are to give summary of all the items in that list to a building manager. Do not include technical or code details. Do not include any conversation, just give the answer directly.";
     const res = await this.callAPI(JSON.stringify(aiSuggestions), context);
-    // console.log('res', res.data);
     this.setState({ aiSummary: res.data });
   }
 
   setCurrentStructure = value => {
-    // console.log('value', value)
     this.setState({ currentStructure: value });
   }
 
   setAllPOIs = value => {
-    // console.log('value', value)
-    const { allPOIs, aiSuggestions } = this.state;
+    const { allPOIs } = this.state;
     this.setState({ allPOIs: [...allPOIs, value] });
     this.setState(prevState => ({
       aiSuggestions: { 
@@ -194,7 +187,7 @@ class Dashboard extends React.Component {
   render() {
     const { aiSummary, aiSuggestions, aiObjects, currentStructure } = this.state;
 
-    // console.log('aiSuggestions', aiSuggestions);
+    console.log('aiSuggestions', aiSuggestions);
     return (
       <>
         <h2 className="project-name-heading" style={{ color: '#007bff' }}>Group Thr33</h2>

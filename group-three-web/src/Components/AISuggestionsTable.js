@@ -24,17 +24,13 @@ class AISuggestionsTable extends React.Component {
   };
 
   removeRow = (key) => {
-    console.log('remove key', key);
     const { deletePOI } = this.props;
     deletePOI(key)
   };
 
   addAttribute = (key) => {
-    console.log('remove key', key);
     const { newAttribute } = this.state;
-    console.log('newAttribute', newAttribute)
     if (newAttribute.subkey) {
-      console.log('hereeee')
       const { addPOIAttribute } = this.props;
       addPOIAttribute(newAttribute.value, newAttribute.subkey, key);
     }
@@ -47,7 +43,6 @@ class AISuggestionsTable extends React.Component {
   };
 
   handleAttributeInputDelete = (subkey, key) => {
-    console.log('subkey, key', subkey, key)
     const { deletePOIAttribute } = this.props;
     deletePOIAttribute(subkey, key);
   };
@@ -55,7 +50,6 @@ class AISuggestionsTable extends React.Component {
   render() {
     const { data } = this.props;
     const { expandedRow, newAttribute } = this.state;
-    console.log('newAttribute', newAttribute)
 
     return (
       <div className="table-container">

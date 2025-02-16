@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 dotenv.config()
 
+const database = {};
+
 // Call AI
 app.get('/api/poi', async (req, res) => {
   const { input, context } = req.query;
@@ -17,6 +19,23 @@ app.get('/api/poi', async (req, res) => {
   }
   const result = await AICall(input, context);
   res.json({ data: result });
+});
+
+// Receive POIs from KRPano
+app.post('/api/poi/database', async (req, res) => {
+  try {
+    const { data } = req.body; // Extract from request body
+
+    if (!data) {
+      return res.status(400).json({ error: "No data attribute in request body." });
+    }
+
+    res.status(200).json({ success: true, data: {}, message: "POI data received successfully." });
+
+  } catch (error) {
+    console.error("Error in /api/poi/database:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.listen(app.listen(process.env.API_PORT, () => {

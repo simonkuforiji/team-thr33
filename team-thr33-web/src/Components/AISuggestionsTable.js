@@ -53,7 +53,7 @@ class AISuggestionsTable extends React.Component {
 
     return (
       <div className="table-container">
-        <h2 className="table-heading">POI List</h2>
+        <h2 className="table-heading">POI Attributes List</h2>
         <table className="ai-table">
           <thead>
             <tr>

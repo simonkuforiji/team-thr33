@@ -4,7 +4,7 @@ import Button from './Button';
 import { CgAdd } from 'react-icons/cg';
 
 const SelectionBox = (
-  { title, options, onSelect, button_children, onSubmit }
+  { title, options, onSelect, button_children, onSubmit, subtitle }
 ) => {
   const [selected, setSelected] = useState(null);
   const [inputValue, setInputValue] = useState('');
@@ -36,6 +36,7 @@ const SelectionBox = (
     <div className="selection-box">
     <div className="selection-heading-box">
       <h2 className="selection-heading">{title}</h2>
+      <h4 className="selection-subheading">{subtitle}</h4>
       <CgAdd  size={30} style={{ color: '#007bff' }} onClick={toggeSelection}/>
     </div>
     <br />

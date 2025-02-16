@@ -196,7 +196,7 @@ class Dashboard extends React.Component {
         <div className="box-1">
           <div className="box-2">
             <div>
-              <SelectionBox title="Select Structure" options={strutureList} onSelect={this.setCurrentStructure} button_children="Generate POIs" onSubmit={this.POIObjects} />
+              <SelectionBox title="Select Structure" subtitle="(Potential POI suggestions)" options={strutureList} onSelect={this.setCurrentStructure} button_children="Generate POIs" onSubmit={this.POIObjects} />
             </div>
             <div>
               <SelectionBoxTwo title={`Choose POIs for ${currentStructure}`} options={aiObjects} updateOptions={this.updateAiObjects} onSelect={this.setAllPOIs} button_children="Generate Attributes for All POIs" onSubmit={this.POICreation} />

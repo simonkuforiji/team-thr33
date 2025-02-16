@@ -224,6 +224,14 @@ code {
     margin-bottom: 10px;
   }
 
+  .selection-subheading {
+    font-size: 15px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+
   .selection-heading-box {
     cursor: pointer;
   }
